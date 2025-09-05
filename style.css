@@ -1,0 +1,40 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+    
+ body {
+   height: 100vh;
+   background: linear-gradient(#bbbfc7, #005eff);
+   display:flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+
+}
+.login-form button{
+    background-color: #005eff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.login-form button:hover{
+    background-color: black;
+
+}
+ button{
+    border-radius: 10px;
+    
+ }
+ input{
+ border-radius: 10px;   
+ }
