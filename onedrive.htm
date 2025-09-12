@@ -5,14 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tralala-tralali</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
+    <div class="particles"></div>
     <form class="login-form" form>
     <input type="text", placeholder= "Użutkownik", name="login"input>
     <input type="password", placeholder="Haslo", name="haslo" input>
 
 <button>Zaloguj</button>
-    <div class="ball" div>
+    <script>
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            
+            // Random size between 3 and 8 pixels
+            const size = Math.random() * 5 + 3;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Random violet-based color
+            const colors = [
+                'rgba(138,43,226,0.8)', // BlueViolet
+                'rgba(148,0,211,0.8)',  // DarkViolet
+                'rgba(147,112,219,0.8)', // MediumPurple
+                'rgba(186,85,211,0.8)',  // MediumOrchid
+                'rgba(218,112,214,0.8)'  // Orchid
+            ];
+            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+            particle.style.borderRadius = '50%';
+            particle.style.filter = 'blur(1px)';
+            
+            // Random starting position
+            const startX = Math.random() * window.innerWidth;
+            const startY = Math.random() * window.innerHeight;
+            
+            // Random middle position for curved path
+            const midX = (Math.random() - 0.5) * 100;
+            const midY = (Math.random() - 0.5) * 100;
+            
+            // Random ending position
+            const endX = (Math.random() - 0.5) * 300;
+            const endY = (Math.random() - 0.5) * 300;
+            
+            particle.style.setProperty('--mid-x', `${midX}px`);
+            particle.style.setProperty('--mid-y', `${midY}px`);
+            particle.style.setProperty('--end-x', `${endX}px`);
+            particle.style.setProperty('--end-y', `${endY}px`);
+            
+            particle.style.left = `${startX}px`;
+            particle.style.top = `${startY}px`;
+            
+            // Random animation duration between 3 and 6 seconds
+            const duration = Math.random() * 3 + 3;
+            particle.style.animation = `particle-animation ${duration}s ease-out forwards`;
+            
+            document.querySelector('.particles').appendChild(particle);
+            
+            // Remove particle after animation
+            particle.addEventListener('animationend', () => {
+                particle.remove();
+            });
+        }
+
+        // Create particles more frequently
+        setInterval(createParticle, 50);
+    </script>
 </body>
 </html>
